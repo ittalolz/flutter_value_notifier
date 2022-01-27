@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 
-class HomeController extends ChangeNotifier {
-  var counter = 0;
+class HomeController {
+  var counter$ = ValueNotifier(0);
+
+  int get counter => counter$.value;
 
   void increment() {
-    counter++;
-    notifyListeners();
+    counter$.value++;
   }
 }

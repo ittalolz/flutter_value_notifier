@@ -1,11 +1,16 @@
 import 'package:flutter/cupertino.dart';
 
-class HomeController {
-  var counter$ = ValueNotifier(0);
+// class HomeController {
+//   var counter$ = ValueNotifier(0);
+//
+//   int get counter => counter$.value;
+//
+//   void increment() => counter$.value++;
+// }
 
-  int get counter => counter$.value;
+class Counter extends ValueNotifier<int>{
+  Counter() : super(0);
 
-  void increment() {
-    counter$.value++;
-  }
+  increment() => value++;
+  decrement() => value--;
 }

@@ -9,14 +9,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final controller = HomeController();
+  final controller = Counter();
 
-  int get _counter => controller.counter;
+  int get _counter => controller.value;
 
   @override
   void initState() {
     super.initState();
-    controller.counter$.addListener(() {
+    controller.addListener(() {
       setState(() {
 
       });

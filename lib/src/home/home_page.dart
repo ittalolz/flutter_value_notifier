@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_value_notifier/src/home/home_controller.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -8,14 +9,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _counter = 0;
+  final controller = HomeController();
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
+  int get _counter => controller.counter;
+
+  @override
+  void initState() {
+    super.initState();
+    controller.addListener(() {
+      setState(() {
+
+      });
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +40,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: controller.increment,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),

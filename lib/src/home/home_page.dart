@@ -11,8 +11,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final counter = Counter();
 
-  int get _counter => counter.value;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,8 +23,8 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text('You have pushed the button this many times:'),
-            AnimatedBuilder(animation: counter, builder: (context, child) {
-              return Text('$_counter', style: Theme.of(context).textTheme.headline4,);
+            ValueListenableBuilder<int>(valueListenable: counter, builder: (context, value, child) {
+              return Text('$value', style: Theme.of(context).textTheme.headline4,);
             })
           ],
         ),
